@@ -5,7 +5,7 @@ const paymentDetailsSchema = mongoose.Schema({
 	pass: { type: String },
 	paystack: { type: String },
 	razorkey: { type: String },
-	paytmkey: { type: SString },
+	paytmkey: { type: String },
 	paytmpass: { type: String }
 });
 
