@@ -17,4 +17,4 @@ const taskInfoSchema = mongoose.Schema(
 	{ timestamps: true }
 );
 
-module.exports = mongoose.model('taskinfo', 'taskInfoSchema');
+module.exports = mongoose.model('taskinfo', taskInfoSchema);

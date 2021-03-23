@@ -9,4 +9,4 @@ const paymentDetailsSchema = mongoose.Schema({
 	paytmpass: { type: String }
 });
 
-module.exports = mongoose.model('paymentdetail', 'paymentDetailsSchema');
+module.exports = mongoose.model('paymentdetail', paymentDetailsSchema);

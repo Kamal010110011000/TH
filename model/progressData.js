@@ -5,4 +5,4 @@ const progressSchema = mongoose.Schema({
 	progress: { type: Number }
 });
 
-module.exports = mongoose.model('progressData', 'progressSchema');
+module.exports = mongoose.model('progressData', progressSchema);

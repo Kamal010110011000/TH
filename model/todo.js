@@ -13,4 +13,4 @@ const todoSchema = mongoose.Schema({
 	progress: { type: Number }
 });
 
-module.exports = mongoose.model('todo', 'todoSchema');
+module.exports = mongoose.model('todo', todoSchema);

@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var { Actor, Director } = require('./subdocuments');
 
 const seasonSchema = mongoose.Schema(
 	{
@@ -16,11 +17,11 @@ const seasonSchema = mongoose.Schema(
 		detail: { type: String },
 		featured: { type: Number },
 		//type: { type :},
-		episodes: {},
+		episodes: { ty },
 		actorList: [ { type: Actor } ],
 		directorList: [ { type: Director } ]
 	},
 	{ timestamps: true }
 );
 
-module.exports = mongoose.model('season', 'seasonSchema');
+module.exports = mongoose.model('season', seasonSchema);
