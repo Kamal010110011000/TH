@@ -84,3 +84,7 @@ const userSchema = mongoose.Schema({
 });
 
 module.exports = mongoose.model('user', userSchema);
+module.exports = mongoose.model('userProfile', userProfile);
+module.exports = mongoose.model('paypal', Paypal);
+module.exports = mongoose.model('subscription', Subscription);
+module.exports = mongoose.model('item', Item);
