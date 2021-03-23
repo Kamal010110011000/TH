@@ -63,4 +63,4 @@ const configSchema = Schema({
     timestamps: true,
 });
 
-module.exports = mongoose.Model("Config", configSchema)
+module.exports = mongoose.model("Config", configSchema)

@@ -54,4 +54,4 @@ const datumSchema = Schema({
     timestamps: true,
 });
 
-module.exports = mongoose.Model("Datum", datumSchema)
+module.exports = mongoose.model("Datum", datumSchema)

@@ -21,8 +21,6 @@ const Director = new Schema({
     dob: Date,
 },{timestamps: true});
 
-const homeTranslationSchema
-
 const Auth = new Schema({
     name:String,
     image:Object,

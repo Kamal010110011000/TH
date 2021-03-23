@@ -1,11 +1,11 @@
 const express = require('express');
-const ActorMovie = require('../model/actor_movie_detail');
+const Genre = require('../model/genre');
 const router = express.Router();
 
 //create
 router.post("/", (req, res)=> {
-    const actorMovie = new ActorMovie(req.body);
-    actorMovie.save().then(data => {
+    const genre = new Genre(req.body);
+    genre.save().then(data => {
         res.status(201).json({
             ststus: 201,
             data: data,
@@ -20,7 +20,7 @@ router.post("/", (req, res)=> {
 
 //retrieve
 router.get("/", (req, res)=> {
-    ActorMovie.find().then(data => {
+    Genre.find().then(data => {
         res.status(200).json({
             status: 200,
             data: data
@@ -37,7 +37,7 @@ router.get("/", (req, res)=> {
 //retrieve
 router.get("/:id", (req, res)=> {
     var id = req.params.id;
-    ActorMovie.findById(id).then(data => {
+    Genre.findById(id).then(data => {
         res.status(200).json({
             status: 200,
             data: data
@@ -54,8 +54,8 @@ router.get("/:id", (req, res)=> {
 //update
 router.put("/:id", (req, res)=> {
     var id = req.params.id;
-    ActorMovie.findById(id).then(actorMovie => {
-        actorMovie.update(req.body).then(data => {
+    Genre.findById(id).then(genre => {
+        genre.update(req.body).then(data => {
             res.status(201).json({
                 status: 201,
                 data: data,
@@ -80,7 +80,7 @@ router.put("/:id", (req, res)=> {
 //delete
 router.delete("/:id", (req, res) => {
     var id = req.params.id;
-    ActorMovie.deleteOne({id: id}).then(data => {
+    Genre.deleteOne({id: id}).then(data => {
         res.status(200).json({
             status: 200,
             message: "deleted",

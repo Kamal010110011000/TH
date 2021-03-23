@@ -34,10 +34,10 @@ const actorMovieSchema = Schema({
     status: Object,
     isProtect: Boolean,
     password: Object,
-    createdBy: {type: Schema.Types.ObjectId, ref: ""}
+    createdBy: {type: Schema.Types.ObjectId, ref: "User"}
 },
 {
     timestamps: true,
 });
 
-module.exports = mongoose.Model("ActorMovie", actorMovieSchema)
+module.exports = mongoose.model("ActorMovie", actorMovieSchema)
