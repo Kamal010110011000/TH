@@ -1,11 +1,21 @@
 var mongoose = require('mongoose');
 
-const Subscription = new Schema(
+const Item = new mongoose.Schema(
+	{
+		subscriptionId: { type: Number },
+		stripeId: { type: String },
+		stripePlan: { type: String, enum: [] },
+		quantity: { type: Number }
+	},
+	{ timestamps: true }
+);
+
+const Subscription = new mongoose.Schema(
 	{
 		userId: { type: Number },
 		name: { type: String },
 		stripeId: { type: String },
-		stripePlan: { type: StripePlan },
+		stripePlan: { type: String },
 		quantity: { type: Number },
 		trailEndsAt: { type: Object },
 		endsAt: { type: Object },
@@ -18,33 +28,7 @@ const Subscription = new Schema(
 	{ timestamps: true }
 );
 
-const Item = new Schema(
-	{
-		subscriptionId: { type: Number },
-		stripeId: { type: String },
-		stripePlan: { type: String, enum: [] },
-		quantity: { type: Number }
-	},
-	{ timestamps: true }
-);
-
-const userProfile = new Schema({
-	code: { type: String },
-	user: { type: User },
-	paypal: [ { type: Paypal } ],
-	currentDate: { type: Date },
-	payment: { type: String },
-	id: { type: Number },
-	currentSubscription: { type: String },
-	payid: { type: String },
-	start: { type: Date },
-	end: { type: Date },
-	active: { type: Object },
-	screen: { type: Object },
-	limit: { type: Object }
-});
-
-const Paypal = new Schema(
+const Paypal = new mongoose.Schema(
 	{
 		userId: { type: Number },
 		paymentId: { type: String },
@@ -59,7 +43,7 @@ const Paypal = new Schema(
 	{ timestamps: true }
 );
 
-const userSchema = mongoose.Schema({
+const User = new mongoose.Schema({
 	name: { type: String },
 	image: { type: Object },
 	email: { type: String },
@@ -83,7 +67,23 @@ const userSchema = mongoose.Schema({
 	subscription: [ { type: Subscription } ]
 });
 
-module.exports = mongoose.model('user', userSchema);
+const userProfile = new mongoose.Schema({
+	code: { type: String },
+	user: { type: User },
+	paypal: [ { type: Paypal } ],
+	currentDate: { type: Date },
+	payment: { type: String },
+	id: { type: Number },
+	currentSubscription: { type: String },
+	payid: { type: String },
+	start: { type: Date },
+	end: { type: Date },
+	active: { type: Object },
+	screen: { type: Object },
+	limit: { type: Object }
+});
+
+module.exports = mongoose.model('user', User);
 module.exports = mongoose.model('userProfile', userProfile);
 module.exports = mongoose.model('paypal', Paypal);
 module.exports = mongoose.model('subscription', Subscription);
