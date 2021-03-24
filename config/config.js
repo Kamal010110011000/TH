@@ -1,10 +1,9 @@
 const config = {
 	production: {
-		SECRET: process.env.SECRET,
 		DATABASE: process.env.MONGODB_URI
 	},
 	default: {
-		DATABASE: 'mongodb+srv://talent:kamal1234@cluster0.walu6.mongodb.net/thdb?retryWrites=true&w=majority',
+		DATABASE: 'mongodb+srv://talent:kamal1234@cluster0.walu6.mongodb.net/thdb?retryWrites=true&w=majority'
 	}
 };
 
