@@ -4,7 +4,7 @@ const bodyparser = require('body-parser');
 const db = require('./config/config').get(process.env.NODE_ENV);
 
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4005;
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
@@ -45,7 +45,7 @@ const watchHistoryRouter = require('./router/watchHistory');
 const wishListRouter = require('./router/wishList');
 const movieRouter = require('./router/movie');
 const tvSeiesRouter = require('./router/tvSeries');
-const SeasonRouter = require('./router/seasonDetail');
+const SeasonDetailRouter = require('./router/seasonDetail');
 
 //routers
 app.use('/api/actormovie/', actorMovieRouter);
@@ -80,6 +80,13 @@ app.use('/api/profile/', userProfileRouter);
 app.use('/api/link/', videoLinkRouter);
 app.use('/api/watchhistory/', watchHistoryRouter);
 app.use('/api/wishlist/', wishListRouter);
+app.use('/api/movie/', movieRouter);
+app.use('/api/seasondetails/', SeasonDetailRouter);
+app.use('/api/tvseries/', tvSeiesRouter);
+
+app.get('/', (req, res) => {
+	res.json('swagat hai apka');
+});
 
 // database connection
 mongoose.Promise = global.Promise;

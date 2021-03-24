@@ -38,6 +38,25 @@ const Movie = new mongoose.Schema(
 	}
 );
 
+const SeasonDetail = new mongoose.Schema(
+	{
+		tvSeriesId: { type: Number },
+		tmdbId: { type: String },
+		seasonNo: { type: Number },
+		publishYear: { type: String },
+		thumbnail: { type: String },
+		poster: { type: String },
+		actorId: { type: String },
+		aLanguage: { type: Object },
+		subtitle: { type: Number },
+		subtitleList: { type: Object },
+		detail: { type: String },
+		featured: { type: Number },
+		type: { type: String }
+	},
+	{ timestamps: true }
+);
+
 const TvSeries = new mongoose.Schema(
 	{
 		keyword: { type: String },
@@ -60,26 +79,7 @@ const TvSeries = new mongoose.Schema(
 		status: { type: Number },
 		createdBy: { type: Number },
 		userRating: { type: Number },
-		season: [ { type: Season } ]
-	},
-	{ timestamps: true }
-);
-
-const Season = new mongoose.Schema(
-	{
-		tvSeriesId: { type: Number },
-		tmdbId: { type: String },
-		seasonNo: { type: Number },
-		publishYear: { type: String },
-		thumbnail: { type: String },
-		poster: { type: String },
-		actorId: { type: String },
-		aLanguage: { type: Object },
-		subtitle: { type: Number },
-		subtitleList: { type: Object },
-		detail: { type: String },
-		featured: { type: Number },
-		type: { type: String }
+		season: [ { type: SeasonDetail } ]
 	},
 	{ timestamps: true }
 );
@@ -90,7 +90,7 @@ const watchHistoruSchema = mongoose.Schema(
 		tvId: { type: Number },
 		userId: { type: Number },
 		tvSeries: { type: TvSeries },
-		movies: { type: Movies }
+		movies: { type: Movie }
 	},
 	{ timestamps: true }
 );
@@ -98,4 +98,4 @@ const watchHistoruSchema = mongoose.Schema(
 module.exports = mongoose.model('watchistory', watchHistoruSchema);
 module.exports = mongoose.model('movie', Movie);
 module.exports = mongoose.model('tvseries', TvSeries);
-module.exports = mongoose.model('season', Season);
+module.exports = mongoose.model('seasondetail', SeasonDetail);

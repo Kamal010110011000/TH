@@ -17,7 +17,7 @@ const seasonSchema = mongoose.Schema(
 		detail: { type: String },
 		featured: { type: Number },
 		//type: { type :},
-		episodes: { ty },
+		// episodes: { ty },
 		actorList: [ { type: Actor } ],
 		directorList: [ { type: Director } ]
 	},
