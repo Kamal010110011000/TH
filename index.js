@@ -43,6 +43,9 @@ const userProfileRouter = require('./router/userProfile');
 const videoLinkRouter = require('./router/videoLink');
 const watchHistoryRouter = require('./router/watchHistory');
 const wishListRouter = require('./router/wishList');
+const movieRouter = require('./router/movie');
+const tvSeiesRouter = require('./router/tvSeries');
+const SeasonRouter = require('./router/seasonDetail');
 
 //routers
 app.use('/api/actormovie/', actorMovieRouter);
@@ -64,6 +67,7 @@ app.use('/api/movietv/', movietvRouter);
 app.use('/api/notification/', notificationRouter);
 app.use('/api/payment/', paymentDetailRouter);
 app.use('/api/paypal/', paypalRouter);
+app.use('/api/plan/', planRouter);
 app.use('/api/progress/', progressDataRouter);
 app.use('/api/screen/', screenRouter);
 app.use('/api/season/', seasonRouter);

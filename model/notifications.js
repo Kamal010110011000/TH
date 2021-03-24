@@ -47,3 +47,4 @@ const notificationSchema = mongoose.Schema(
 );
 
 module.exports = mongoose.model('notification', notificationSchema);
+module.exports = mongoose.model('data', Data);
