@@ -11,9 +11,13 @@ const SubComment = new Schema({
 
 const commentSchema = Schema({
     name:{type:String},
+    user_id:{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
     email: {type: String},
     movieId: {type: Schema.Types.ObjectId, ref:'Movie'},
-    tvSeriesId: {type: Schema.Types.ObjectId, ref:''},
+    blogId: {type: Schema.Types.ObjectId, ref:'Blog'},
     comment: {type: String, required: true},
     subComment: [{type: SubComment}]
 },

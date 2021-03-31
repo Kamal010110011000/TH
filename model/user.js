@@ -47,6 +47,7 @@ const User = new mongoose.Schema({
 	name: { type: String },
 	image: { type: Object },
 	email: { type: String },
+	password: {type: String},
 	verifyToken: { type: Object },
 	status: { type: Number },
 	googleId: { type: Object },

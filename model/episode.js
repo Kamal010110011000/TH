@@ -3,20 +3,18 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const episodeSchema = Schema({
-    seasonId:{type:Number},
+    seasonId:{type:Schema.Types.ObjectId, ref:'Season'},
     tmdbId: {type: String},
     thumbnail: {type: String},
     episodeNo: {type: Number},
-    tmdb: {type: Schema.Types.ObjectId, ref:'Tmdb'},
-    duration: Object,
+    title: String,
+    tmdb: String,
+    duration: String,
     detail: String,
     aLanguage: Object,
-    subtitle: Number,
-    subtitleList: Object,
-    subtitleFiles: Object,
+    subtitle: Boolean,
     released: Date,
-    type: {type: String,enum:['A', 'B']},
-    videoLink: {type: Schema.Types.ObjectId, ref:'VideoLink'},
+    type: {type: String, default: 'E'}
 },
 {
     timestamps: true,

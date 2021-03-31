@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
+//Extra
 const Schema = mongoose.Schema;
 
+
+//auth_customize
 const LoginImg = new Schema({
     id: Schema.Types.ObjectId,
     image: String,

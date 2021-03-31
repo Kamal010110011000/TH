@@ -1,0 +1,39 @@
+//Talent Height apis
+(get, post, get(id), put(id), delete(id)) for all
+https://talent-high.herokuapp.com/api
+                                    /actormovie/
+                                    /blog/
+                                    /app/
+                                    /block/
+                                    /adsense/
+                                    /tree/
+                                    /btree/
+                                    /comment/
+                                    /config/
+                                    /datum/
+                                    /director/
+                                    /episode/
+                                    /faq/
+                                    /genre/
+                                    /login/
+                                    /menu/
+                                    /movietv/
+                                    /notification/
+                                    /payment/
+                                    /plan/
+                                    /paypal/
+                                    /progress/
+                                    /screen/
+                                    /slider/
+                                    /season/
+                                    /subscription/
+                                    /task/
+                                    /topmovietv/
+                                    /user/
+                                    /profile/
+                                    /link/
+                                    /watchhistory/
+                                    /wishlist/
+                                    /movie/
+                                    /seasondetails/
+                                    /tvseries/

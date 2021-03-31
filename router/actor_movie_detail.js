@@ -2,6 +2,11 @@ const express = require('express');
 const ActorMovie = require('../model/actor_movie_detail');
 const router = express.Router();
 
+const Joi = require('joi');
+
+const Schema = Joi.object({
+    
+})
 //create
 router.post("/", (req, res)=> {
     const actorMovie = new ActorMovie(req.body);

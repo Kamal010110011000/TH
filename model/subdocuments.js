@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
+//in use
 const Actor =new Schema({
     name:{type:String},
     image: {type: String},
@@ -13,6 +14,7 @@ const Actor =new Schema({
     timestamps: true,
 });
 
+//in use
 const Director = new Schema({
     name: String,
     image: String,
