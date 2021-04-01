@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 //in use
-const Actor =new Schema({
+const ActorSchema =new Schema({
     name:{type:String},
     image: {type: String},
     biography: {type: String},
@@ -15,7 +15,7 @@ const Actor =new Schema({
 });
 
 //in use
-const Director = new Schema({
+const DirectorSchema = new Schema({
     name: String,
     image: String,
     biography: String,
@@ -23,7 +23,7 @@ const Director = new Schema({
     dob: Date,
 },{timestamps: true});
 
-const Auth = new Schema({
+const AuthSchema = new Schema({
     name:String,
     image:Object,
     email:String,
@@ -46,21 +46,28 @@ const Auth = new Schema({
     isBlocked: Number,
 }, {timestamps: true});
 
-const HomeTranslation = new Schema({
+const HomeTranslationSchema = new Schema({
     key: String,
     value: String,
     status: Number,
 },{timestamps: true});
 
-const Genre = new Schema({
+const GenreSchema = new Schema({
     name: String,
 },{timestamps: true});
 
-const Audio = new Schema({
+const AudioSchema = new Schema({
     language: String,
     name: String,
 },{timestamps: true});
 
+const Audio = mongoose.model("Audio", AudioSchema);
+const Actor = mongoose.model("Actor", ActorSchema);
 
-
-module.exports = {Actor,Director,Auth, Genre,HomeTranslation, Audio}
+module.exports = {
+    Actor:Actor,
+    Director:DirectorSchema,
+    Auth: AuthSchema, 
+    Genre: GenreSchema,
+    HomeTranslation: HomeTranslationSchema,
+    Audio: AudioSchema}

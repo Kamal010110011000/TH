@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 
 const sliderSchema = mongoose.Schema(
 	{
-		movieId: { type: Number },
-		tvSeriesId: { type: Object },
+		movieId: { type: String },
+		tvSeriesId: { type: String },
 		SlideImage: { type: String },
 		active: { type: Number },
 		position: { type: Number }
@@ -11,4 +11,4 @@ const sliderSchema = mongoose.Schema(
 	{ timestamps: true }
 );
 
-module.exports = mongoose.model('slider', sliderSchema);
+module.exports = mongoose.model('Slider', sliderSchema);

@@ -18,8 +18,8 @@ const seasonSchema = mongoose.Schema(
 		featured: { type: Number },
 		//type: { type :},
 		// episodes: { ty },
-		actorList: [ { type: Actor } ],
-		directorList: [ { type: Director } ]
+		actorList: [ { type: mongoose.Schema.Types.ObjectId , ref: 'Actor'} ],
+		directorList: [ { type: mongoose.Schema.Types.ObjectId, ref: 'Director' } ]
 	},
 	{ timestamps: true }
 );

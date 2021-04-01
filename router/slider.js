@@ -1,10 +1,10 @@
 const express = require('express');
-const slider = require('../model/slider');
+const Slider = require('../model/slider');
 const router = express.Router();
 
 //create
 router.post('/', (req, res) => {
-	const slider = new slider(req.body);
+	const slider = new Slider(req.body);
 	slider
 		.save()
 		.then((data) => {
@@ -23,7 +23,7 @@ router.post('/', (req, res) => {
 
 //retrieve
 router.get('/', (req, res) => {
-	slider
+	Slider
 		.find()
 		.then((data) => {
 			res.status(200).json({
@@ -43,7 +43,7 @@ router.get('/', (req, res) => {
 //retrieve
 router.get('/:id', (req, res) => {
 	var id = req.params.id;
-	slider
+	Slider
 		.findById(id)
 		.then((data) => {
 			res.status(200).json({
@@ -63,7 +63,7 @@ router.get('/:id', (req, res) => {
 //update
 router.put('/:id', (req, res) => {
 	var id = req.params.id;
-	slider
+	Slider
 		.findById(id)
 		.then((slider) => {
 			slider
@@ -95,7 +95,7 @@ router.put('/:id', (req, res) => {
 //delete
 router.delete('/:id', (req, res) => {
 	var id = req.params.id;
-	slider
+	Slider
 		.deleteOne({ id: id })
 		.then((data) => {
 			res.status(200).json({

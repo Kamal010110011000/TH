@@ -95,7 +95,11 @@ const watchHistoruSchema = mongoose.Schema(
 	{ timestamps: true }
 );
 
-module.exports = mongoose.model('watchistory', watchHistoruSchema);
-module.exports = mongoose.model('movie', Movie);
-module.exports = mongoose.model('tvseries', TvSeries);
-module.exports = mongoose.model('seasondetail', SeasonDetail);
+const watchHistoryModel = mongoose.model('watchistory', watchHistoruSchema);
+const movieModel = mongoose.model('movie', Movie);
+const tvSeriesModel = mongoose.model('tvseries', TvSeries);
+const seasondetailModel = mongoose.model('seasondetail', SeasonDetail);
+
+module.exports = {watchHistory: watchHistoryModel, Movie: movieModel, TvSeries: tvSeriesModel, SeasonDetail: seasondetailModel};
+
+

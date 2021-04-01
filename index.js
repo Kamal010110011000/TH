@@ -48,6 +48,7 @@ const tvSeiesRouter = require('./router/tvSeries');
 const SeasonDetailRouter = require('./router/seasonDetail');
 
 //routers
+//tested
 app.use('/api/actormovie/', actorMovieRouter);
 app.use('/api/blog/', blogRouter);
 app.use('/api/block/', blockRouter);
@@ -71,6 +72,7 @@ app.use('/api/plan/', planRouter);
 app.use('/api/progress/', progressDataRouter);
 app.use('/api/screen/', screenRouter);
 app.use('/api/season/', seasonRouter);
+//tested
 app.use('/api/slider/', sliderRouter);
 app.use('/api/subscription/', subscriptionRouter);
 app.use('/api/task/', taskInfoRouter);
@@ -80,6 +82,7 @@ app.use('/api/profile/', userProfileRouter);
 app.use('/api/link/', videoLinkRouter);
 app.use('/api/watchhistory/', watchHistoryRouter);
 app.use('/api/wishlist/', wishListRouter);
+//tested
 app.use('/api/movie/', movieRouter);
 app.use('/api/seasondetails/', SeasonDetailRouter);
 app.use('/api/tvseries/', tvSeiesRouter);

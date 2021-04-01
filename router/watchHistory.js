@@ -1,10 +1,10 @@
 const express = require('express');
-const watchHistory = require('../model/watchHistory');
+const {WatchHistory} = require('../model/watchHistory');
 const router = express.Router();
 
 //create
 router.post('/', (req, res) => {
-	const watchHistory = new watchHistory(req.body);
+	const watchHistory = new WatchHistory(req.body);
 	watchHistory
 		.save()
 		.then((data) => {

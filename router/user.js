@@ -1,24 +1,38 @@
 const express = require('express');
-const User = require('../model/user');
+const {User} = require('../model/user');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
 
 //create
 router.post('/', (req, res) => {
-	const User = new User(req.body);
-	User.save()
+	const user = new User(req.body);
+	console.log(req.body);
+	console.log(user);
+	user.save()
 		.then((data) => {
+			const expire = Math.floor(Date.now() / 1000) + (60 * 60);
+			var token = jwt.sign({exp: expire,data: {_id: data._id}}, 'secret');
 			res.status(201).json({
 				ststus: 201,
+				token_type: "jsonwebtoken",
+				expires_in: expire,
+				access_token: token,
+				refresh_token: "refreshtoken",
 				data: data
 			});
 		})
 		.catch((err) => {
+			console.log(err);
 			res.status(400).json({
 				status: 400,
 				data: err
 			});
 		});
 });
+
+router.post('/login', (req, res)=>{
+	
+})
 
 //retrieve
 router.get('/', (req, res) => {

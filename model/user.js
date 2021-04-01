@@ -50,15 +50,15 @@ const User = new mongoose.Schema({
 	password: {type: String},
 	verifyToken: { type: Object },
 	status: { type: Number },
-	googleId: { type: Object },
-	facebookId: { type: Object },
-	gitlabId: { type: Object },
-	dob: { type: Object },
+	googleId: { type: String, default: null,unique: false },
+	facebookId: { type: String, default: null ,unique: false},
+	gitlabId: { type: String, default: null ,unique: false},
+	dob: { type: Date },
 	age: { type: Number },
 	mobile: { type: Object },
-	braintreeId: { type: Object },
-	code: { type: Object },
-	stripeId: { type: Object },
+	braintreeId: { type: String , default: null,unique: false},
+	code: { type: String },
+	stripeId: { type: String , default: null,unique: false},
 	cardBrand: { type: String },
 	cardLastFour: { type: String },
 	trailEndsAt: { type: String },
@@ -84,8 +84,16 @@ const userProfile = new mongoose.Schema({
 	limit: { type: Object }
 });
 
-module.exports = mongoose.model('user', User);
-module.exports = mongoose.model('userProfile', userProfile);
-module.exports = mongoose.model('paypal', Paypal);
-module.exports = mongoose.model('subscription', Subscription);
-module.exports = mongoose.model('item', Item);
+const userModel = mongoose.model('User', User);
+const userProfileModel = mongoose.model('userProfile', userProfile);
+const paypalModel = mongoose.model('paypal', Paypal);
+const subscriptionModel = mongoose.model('subscription', Subscription);
+const itemModel= mongoose.model('item', Item);
+
+module.exports = {
+	User: userModel,
+	UserProfile: userProfileModel,
+	PayPal: paypalModel,
+	Subscription: subscriptionModel,
+	Item: itemModel,
+}
