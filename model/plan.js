@@ -2,21 +2,19 @@ var mongoose = require('mongoose');
 
 const planSchema = mongoose.Schema(
 	{
-		planId: { type: String },
 		name: { type: String },
-		currency: { type: String },
-		currency: { typoe: String },
-		currencySymbol: { type: String },
-		amount: { type: Number },
-		interval: { type: String },
-		intervalCount: { type: Number },
-		trailPeriodDays: { type: Object },
-		status: { type: Number },
-		screens: { tupe: Number },
-		download: { type: Number },
-		downloadLimit: { type: Number },
-		downloadStatus: { type: Number },
-		pricingTexts: { type: Object }
+		image: String,
+		email: String,
+		password: String,
+		plan: String,
+		dob: Date,
+		mobile: String,
+		stripe_id: String,
+		card_brand: String,
+		card_last_four: String,
+		trial_ends_at: Date,
+		is_admin: {type:Boolean, default: false},
+		remember_token: String
 	},
 	{ timestamps: true }
 );

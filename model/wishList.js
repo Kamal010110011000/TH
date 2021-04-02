@@ -2,10 +2,10 @@ var mongoose = require('mongoose');
 
 const wishSchema = mongoose.Schema(
 	{
-		userid: { type: Number },
-		movieId: { type: Number },
-		seasonId: { type: Object },
-		added: { type: Number }
+		userid: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+		movieId: { type: mongoose.Schema.Types.ObjectId, ref: 'Movie' },
+		seasonId: { type: mongoose.Schema.Types.ObjectId, ref: 'Season' },
+		added: { type: Booelan, default: false }
 	},
 	{ timestamps: true }
 );

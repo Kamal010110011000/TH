@@ -3,25 +3,28 @@ var { Actor, Director } = require('./subdocuments');
 
 const seasonSchema = mongoose.Schema(
 	{
-		tvSeriesId: { type: Number },
-		tmdbId: { type: String },
-		seasonNo: { type: Number },
-
-		publishYear: { type: String },
+		tv_series_id: { type: mongoose.Schema.Types.ObjectId, ref: 'TVSeries' },
+		tmdb_id: { type: String },
+		season_no: { type: Number },
+		season_slug: { type: String },
+		tmbd:String,
+		publich_year: String,
 		thumbnail: { type: String },
-		poster: { type: Object },
-		actorId: { type: String },
-		aLanguage: { type: Object },
+		poster: { type: String },
+		actor_id: { type: mongoose.Schema.Types.ObjectId, ref:'Actor' },
+		aLanguage: { type: String },
 		subtitle: { type: Number },
 		subtitleList: { type: Object },
 		detail: { type: String },
-		featured: { type: Number },
-		//type: { type :},
-		// episodes: { ty },
+		featured: { type: Booelan },
+		type: {type: String, default: 'S'},
+		is_protect: { type: Number, default: 0},
+		password: String,
+		trailer_url: String,
 		actorList: [ { type: mongoose.Schema.Types.ObjectId , ref: 'Actor'} ],
 		directorList: [ { type: mongoose.Schema.Types.ObjectId, ref: 'Director' } ]
 	},
 	{ timestamps: true }
 );
 
-module.exports = mongoose.model('season', seasonSchema);
+module.exports = mongoose.model('Season', seasonSchema);

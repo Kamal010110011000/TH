@@ -54,7 +54,7 @@ const User = new mongoose.Schema({
 	facebookId: { type: String, default: null ,unique: false},
 	gitlabId: { type: String, default: null ,unique: false},
 	dob: { type: Date },
-	age: { type: Number },
+	age: { type: Number, default: 0 },
 	mobile: { type: Object },
 	braintreeId: { type: String , default: null,unique: false},
 	code: { type: String },
@@ -62,9 +62,11 @@ const User = new mongoose.Schema({
 	cardBrand: { type: String },
 	cardLastFour: { type: String },
 	trailEndsAt: { type: String },
-	isAdmin: { type: Number },
-	isAssistant: { type: Number },
-	isBlocked: { type: Number },
+	isAdmin: { type: Boolean },
+	isAssistant: { type: Boolean, default: false },
+	isBlocked: { type: Boolean, default: false },
+	remember_token: String,
+	amazon_id: String,
 	subscription: [ { type: Subscription } ]
 });
 

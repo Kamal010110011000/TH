@@ -61,7 +61,6 @@ const AudioSchema = new Schema({
     name: String,
 },{timestamps: true});
 
-const Audio = mongoose.model("Audio", AudioSchema);
 const Actor = mongoose.model("Actor", ActorSchema);
 
 module.exports = {

@@ -57,49 +57,20 @@ const SeasonDetail = new mongoose.Schema(
 	{ timestamps: true }
 );
 
-const TvSeries = new mongoose.Schema(
-	{
-		keyword: { type: String },
-		tmdbId: { type: String },
-		description: { type: String },
-		title: { type: String },
-		tmdb: { type: String },
-		fetchBy: { type: String },
-		thumbnail: { type: String },
-		poster: { type: String },
-		genereId: { type: String },
-		detail: { type: String },
-		rating: { type: Object },
-		episodeRuntime: { type: Object },
-		maturityRating: { type: String },
-		directorId: { type: String },
-		actorId: { type: String },
-		featured: { type: Number },
-		type: { type: String },
-		status: { type: Number },
-		createdBy: { type: Number },
-		userRating: { type: Number },
-		season: [ { type: SeasonDetail } ]
-	},
-	{ timestamps: true }
-);
-
 const watchHistoruSchema = mongoose.Schema(
 	{
-		movieId: { type: Number },
-		tvId: { type: Number },
-		userId: { type: Number },
-		tvSeries: { type: TvSeries },
-		movies: { type: Movie }
+		movieId: { type: mongoose.Schema.Types.ObjectId, ref: 'Movie' },
+		tvSeries: { type: mongoose.Schema.Types.ObjectId, ref: 'TVSeries' },
+		userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+		tvId: { type: String }
 	},
 	{ timestamps: true }
 );
 
 const watchHistoryModel = mongoose.model('watchistory', watchHistoruSchema);
 const movieModel = mongoose.model('movie', Movie);
-const tvSeriesModel = mongoose.model('tvseries', TvSeries);
 const seasondetailModel = mongoose.model('seasondetail', SeasonDetail);
 
-module.exports = {watchHistory: watchHistoryModel, Movie: movieModel, TvSeries: tvSeriesModel, SeasonDetail: seasondetailModel};
+module.exports = {watchHistory: watchHistoryModel, Movie: movieModel, SeasonDetail: seasondetailModel};
 
 

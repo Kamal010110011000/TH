@@ -7,16 +7,19 @@ const Data = new mongoose.Schema({
 	data: {
 		type: String
 	},
-	movieId: {
+	movie_id: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Movie'
+	},
+	tv_id: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'TV'
+	},
+	notifiable: {
 		type: String
 	},
-	tvId: {
-		type: String
-	},
-	notifiableId: {
-		type: String
-	}
-});
+	read_at: Date,
+},{timestamps: true});
 
 const notificationSchema = mongoose.Schema(
 	{
